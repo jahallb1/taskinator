@@ -167,7 +167,7 @@ footer {
 
 .select-dropdown,
 .select-status {
-  display: block;
+  display: inline-block;
   font-size: 2.2rem;
   color: #444;
   padding: 12px;
