@@ -31,16 +31,6 @@ var taskFormHandler = function(event) {
         };
         createTaskEl(taskDataOjb);
     }
-
-    //package up data as an object
-    var taskDataOjb = {
-        name: taskNameInput,
-        type: taskTypeInput
-    };
-
-    //send it as an argument to createTaskEl
-    createTaskEl(taskDataOjb);
-
     
 };
 
@@ -182,7 +172,7 @@ var taskStatusChangeHandler = function(event) {
     else if (statusValue === "completed") {
         taskCompletedEl.appendChild(taskSelected);
     }
-}
+};
 
 
 pageContentEl.addEventListener("click", taskButtonHandler);
