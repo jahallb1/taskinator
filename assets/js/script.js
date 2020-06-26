@@ -83,7 +83,7 @@ var createTaskActions = function(taskId) {
 
     var statusSelectEl = document.createElement("select");
     statusSelectEl.className = "select-status";
-    statusSelectEl.setAttribute("name", "status-chage");
+    statusSelectEl.setAttribute("name", "status-change");
     statusSelectEl.setAttribute("data-task-id", taskId);
     var statusChoices = ["To Do", "In Progress", "Completed"];
     for (var i = 0; i < statusChoices.length; i++){
@@ -198,8 +198,17 @@ var dropTaskHandler = function(event) {
     var statusType = dropZoneEl.id;
     //set status of task based on dropZone id
     var statusSelectEl = draggableElement.querySelector("select[name='status-change']");
-    console.dir(statusSelectEl);
-    console.log(statusSelectEl);
+    if (statusType === "tasks-to-do") {
+        statusSelectEl.selectedIndex = 0;
+    }
+    else if (statusType === "tasks-in-progress") {
+        statusSelectEl.selectedIndex = 1;
+    }
+    else if (statusType === "task-completed") {
+        statusSelectEl.selectedIndex = 2;
+    }
+
+    dropZoneEl.appendChild(draggableElement);
 };
 
 pageContentEl.addEventListener("click", taskButtonHandler);
